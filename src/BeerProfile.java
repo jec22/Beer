@@ -1,4 +1,3 @@
-package gov.va.med.person.james;
 
 public class BeerProfile {
 
