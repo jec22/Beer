@@ -1,0 +1,10 @@
+Icy Siphon|7|domestic|99
+Coors|2|domestic|77
+Heineken|3|domestic|76
+Slinging Tick|4|domestic|73
+Flooded Overdrive|3|domestic|62
+Babbling Fox|4|domestic|89
+Twenty Media|2|lager|66
+Icy Siphon|6|domestic|94
+Miller|4|domestic|86
+Twenty Media|8|lager|90
