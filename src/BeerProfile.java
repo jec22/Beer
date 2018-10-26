@@ -16,16 +16,25 @@ public class BeerProfile {
 	public final Integer getNumberSold() {
 		return numberSold;
 	}
+	
+	
+
+	public final String getColor() {
+		return color;
+	}
+
+
 
 	private String		beerName;
 	private Float		beerCost;
 	private String		beerType;
 	private Integer	numberSold;
 	public boolean		isValid	= false;
+	private String color;
 
 	public void parseAndSetProperties(String currentLine) {
 
-		final String safeParseBufferString = "|||||END";
+		final String safeParseBufferString = "|||||||||||||END";
 
 		// add safeParseBufferString to input, then delimit and keep empty-strings
 		final String[] delimitedStringsArray = (currentLine + safeParseBufferString).split("\\|", -1);
@@ -65,6 +74,7 @@ public class BeerProfile {
 			beerCost = beerCostFromSource;
 			beerType = beerTypeFromSource;
 			numberSold = numberSoldFromSource;
+			color = delimitedStringsArray[5];
 		}
 	}
 

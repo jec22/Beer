@@ -85,22 +85,25 @@ public class BeerMain {
 
 			beerProfileList = beerMap.get(beerKey);
 
-			System.out.println((beerKey + " STATS:").toUpperCase()); //print heading
+			System.out.println((beerKey + " BEERS:").toUpperCase()); //print heading
 
 			for (BeerProfile profileElement : beerProfileList) {
 
 				//add up totals while looping for each beer type
 				beerCost += profileElement.getBeerCost();
 				beerCount += profileElement.getNumberSold();
+				
+				System.out.println("* "+profileElement.getBeerName()+" - Color: "+profileElement.getColor());
 			}
 			//add to totals
 			totCount += beerCount;
 			totRevenue += (beerCount * beerCost);
 
 			//print per type of beer
-			System.out.println("* Total count of " + beerKey + " sold: " + beerCount);
-			System.out.println("* Total revenue of " + beerKey + " sold: " + currencyFormat.format(beerCount * beerCost));
-			System.out.println(" ------------------------------------------------------ "); //add separator between prints			
+//			System.out.println("* Total count of " + beerKey + " sold: " + beerCount);
+//			System.out.println("* Total revenue of " + beerKey + " sold: " + currencyFormat.format(beerCount * beerCost));
+//			System.out.println("Beer Color: ");
+//			System.out.println(" ------------------------------------------------------ "); //add separator between prints			
 
 			//reset for next type
 			beerCount = 0;
