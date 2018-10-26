@@ -4,7 +4,7 @@ Heineken|3|domestic|76|0|green
 Slinging Tick|4|domestic|73|0|black
 Flooded Overdrive|3|domestic|62|0|muddy
 Babbling Fox|4|domestic|89|0|orange
-Twenty Media|2|lager|66|0|silver
+Twenty Media|2|lager|66|0|red
 Icy Siphon|6|domestic|94|0|blue
 Miller|4|domestic|86|0|clear
 Twenty Media|8|lager|90|0|red
