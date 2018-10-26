@@ -76,8 +76,11 @@ public class BeerProfile {
 			Integer.parseInt(value);
 			return true;
 		} catch (NumberFormatException e) {
-			return false;
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		return false;
 	}
 
 	private boolean tryParseFloat(String value) {
@@ -86,8 +89,11 @@ public class BeerProfile {
 			Float.parseFloat(value);
 			return true;
 		} catch (NumberFormatException e) {
-			return false;
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		return false;
 
 	}
 
