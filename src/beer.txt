@@ -1,10 +1,10 @@
-Icy Siphon|7|domestic|99|0|blue
-Coors|2|domestic|77|0|brown
-Heineken|3|domestic|76|0|green
-Slinging Tick|4|domestic|73|0|black
-Flooded Overdrive|3|domestic|62|0|muddy
-Babbling Fox|4|domestic|89|0|orange
-Twenty Media|2|lager|66|0|red
-Icy Siphon|6|domestic|94|0|blue
+Icy Siphon|7|domestic|99|15|blue
+Coors|2|domestic|77|8|brown
+Heineken|3|domestic|76|3|green
+Slinging Tick|4|domestic|73|5|black
+Flooded Overdrive|3|domestic|62|200|muddy
+Babbling Fox|4|domestic|89|2|orange
+Twenty Media|2|lager|66|15|red
+Icy Siphon|6|domestic|94|3|blue
 Miller|4|domestic|86|0|clear
-Twenty Media|8|lager|90|0|red
+Twenty Media|8|lager|90|15|red
