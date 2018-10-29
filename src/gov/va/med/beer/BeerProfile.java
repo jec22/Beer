@@ -1,3 +1,5 @@
+package gov.va.med.beer;
+
 public class BeerProfile {
 
 	public final String getBeerName() {
