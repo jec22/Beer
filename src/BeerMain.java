@@ -1,5 +1,3 @@
-
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -74,7 +72,8 @@ public class BeerMain {
 		//add up cost and count per type of beer
 		Integer beerCount = 0;
 		float beerCost = 0f;
-
+		Integer alcoholContent = 0;
+		
 		//total combined count and cost of beer
 		Integer totCount = 0;
 		float totRevenue = 0f;
@@ -92,8 +91,10 @@ public class BeerMain {
 				//add up totals while looping for each beer type
 				beerCost += profileElement.getBeerCost();
 				beerCount += profileElement.getNumberSold();
+				alcoholContent = profileElement.getAlcoholContent();
+	
+				System.out.println("* "+profileElement.getBeerName()+" - Color: "+profileElement.getColor() + " - Alcohol Content: " + alcoholContent + "%");
 				
-				System.out.println("* "+profileElement.getBeerName()+" - Color: "+profileElement.getColor());
 			}
 			//add to totals
 			totCount += beerCount;

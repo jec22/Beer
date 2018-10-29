@@ -1,4 +1,3 @@
-
 public class BeerProfile {
 
 	public final String getBeerName() {
@@ -16,7 +15,9 @@ public class BeerProfile {
 	public final Integer getNumberSold() {
 		return numberSold;
 	}
-	
+	public final Integer getAlcoholContent() {
+		return alcoholContent;
+	}
 	
 
 	public final String getColor() {
@@ -31,6 +32,7 @@ public class BeerProfile {
 	private Integer	numberSold;
 	public boolean		isValid	= false;
 	private String color;
+	private Integer alcoholContent; 
 
 	public void parseAndSetProperties(String currentLine) {
 
@@ -55,7 +57,12 @@ public class BeerProfile {
 			// at this point, it is safe to parse 
 			numberSoldFromSource = Integer.parseInt(delimitedStringsArray[3]);
 		}
-
+		Integer beerAlcoholContent = 0;
+		if(tryParseInt(delimitedStringsArray[4])) {
+			
+			beerAlcoholContent = Integer.parseInt(delimitedStringsArray[4]);
+			
+		}
 		//validation of the input:
 
 		//check if variables are empty or null
@@ -64,6 +71,8 @@ public class BeerProfile {
 
 			isValid = false;
 		} else if ((beerCostFromSource < 0 || numberSoldFromSource < 0)) { //must be positive
+			isValid = false;
+		} else if (beerAlcoholContent < 0){
 			isValid = false;
 		} else {
 			// at this point, then we passed all the the above, so we return true
@@ -74,6 +83,7 @@ public class BeerProfile {
 			beerCost = beerCostFromSource;
 			beerType = beerTypeFromSource;
 			numberSold = numberSoldFromSource;
+			alcoholContent = beerAlcoholContent;
 			color = delimitedStringsArray[5];
 		}
 	}
