@@ -12,9 +12,7 @@ public class BeerMain {
 
 	public static void main(String[] args) throws IOException {
 		BeerMain beerMain = new BeerMain();
-		beerMain.addToMap("src/beer.txt"); //call to process file and add entries to beerMap
-		
-		
+		beerMain.addToMap("src/beer.txt"); //call to process file and add entries to beerMap	
 	}
 
 	public void addToMap(String inputFile) throws IOException {
