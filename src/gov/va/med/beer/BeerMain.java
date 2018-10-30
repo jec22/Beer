@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 
 public class BeerMain {
 
@@ -79,14 +81,17 @@ public class BeerMain {
 		//total combined count and cost of beer
 		Integer totCount = 0;
 		float totRevenue = 0f;
-
-		for (String beerKey : beerMap.keySet()) {
+		//creates Iterator to navigate through our map.
+		Iterator<Map.Entry<String, ArrayList<BeerProfile>>> it = beerMap.entrySet().iterator();
+		
+		while(it.hasNext()) {
 			//get ArrayList for key
 			ArrayList<BeerProfile> beerProfileList = new ArrayList<BeerProfile>();
+			Map.Entry<String, ArrayList<BeerProfile>> entry = it.next();
+			
+			beerProfileList = entry.getValue();
 
-			beerProfileList = beerMap.get(beerKey);
-
-			System.out.println((beerKey + " BEERS:").toUpperCase()); //print heading
+			System.out.println((entry.getKey() + " BEERS:").toUpperCase()); //print heading
 
 			for (BeerProfile profileElement : beerProfileList) {
 
