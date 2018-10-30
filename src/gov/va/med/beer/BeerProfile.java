@@ -2,98 +2,60 @@ package gov.va.med.beer;
 
 public class BeerProfile {
 
-	public final String getBeerName() {
-		return beerName;
-	}
-
-	public final Float getBeerCost() {
-		return beerCost;
-	}
-
-	public final String getBeerType() {
-		return beerType;
-	}
-
-	public final Integer getNumberSold() {
-		return numberSold;
-	}
-	public final Integer getAlcoholContent() {
-		return alcoholContent;
-	}
+	private String beerName = "";
+	private Float beerCost = -1f;
+	private String beerType = "";
+	private Integer	numberSold = -1;
+	private Integer alcoholContent = -1; 
+	private String color = "";
 	
-
-	public final String getColor() {
-		return color;
-	}
-
-
-
-	private String		beerName;
-	private Float		beerCost;
-	private String		beerType;
-	private Integer	numberSold;
-	public boolean		isValid	= false;
-	private String color;
-	private Integer alcoholContent; 
+	public boolean isValid	= false;
 
 	public void parseAndSetProperties(String currentLine) {
 
+		// Safe parse
 		final String safeParseBufferString = "|||||||||||||END";
-
-		// add safeParseBufferString to input, then delimit and keep empty-strings
 		final String[] delimitedStringsArray = (currentLine + safeParseBufferString).split("\\|", -1);
 
-		//get values from array (in order by array element)
-		String beerNameFromSource = delimitedStringsArray[0];
+		beerName = delimitedStringsArray[0];
+		beerCost = parseBeerCost(delimitedStringsArray[1]);
+		beerType = delimitedStringsArray[2];
+		numberSold = parseNumberSold(delimitedStringsArray[3]);
+		alcoholContent = parseAlcoholContent(delimitedStringsArray[4]);
+		color = delimitedStringsArray[5];
 
-		Float beerCostFromSource = -1f; //initialize with error indicator
-		if (tryParseFloat(delimitedStringsArray[1])) {
-			// at this point, it is safe to parse 
-			beerCostFromSource = Float.parseFloat(delimitedStringsArray[1]);
+		isValid = isValid(); 
+	}
+	
+	private boolean isValid() {
+		if(!beerName.trim().isEmpty() && !beerCost.equals(-1f) && !beerType.trim().isEmpty() && numberSold >=0 && alcoholContent >=0) {
+			return true;
 		}
-
-		String beerTypeFromSource = delimitedStringsArray[2];
-
-		Integer numberSoldFromSource = -1;
-		if (tryParseInt(delimitedStringsArray[3])) {
-			// at this point, it is safe to parse 
-			numberSoldFromSource = Integer.parseInt(delimitedStringsArray[3]);
+		return false;
+	}
+	
+	private Float parseBeerCost(String value) {
+		if(tryParseFloat(value)) {
+			return Float.parseFloat(value);
 		}
-		Integer beerAlcoholContent = 0;
-		if(tryParseInt(delimitedStringsArray[4])) {
-			
-			beerAlcoholContent = Integer.parseInt(delimitedStringsArray[4]);
-			
+		return this.beerCost;		
+	}
+	
+	private Integer parseNumberSold(String value) {
+		if(tryParseInt(value)) {
+			return Integer.parseInt(value);
 		}
-		//validation of the input:
-
-		//check if variables are empty or null
-		if (beerNameFromSource.isEmpty() || beerNameFromSource.equals(null) || beerCostFromSource.equals(null) || numberSoldFromSource.equals(null)
-				|| beerTypeFromSource.isEmpty() || beerTypeFromSource.equals(null)) {
-
-			isValid = false;
-		} else if ((beerCostFromSource < 0 || numberSoldFromSource < 0)) { //must be positive
-			isValid = false;
-		} else if (beerAlcoholContent < 0){
-			isValid = false;
-		} else {
-			// at this point, then we passed all the the above, so we return true
-			isValid = true;
-
-			// set internal properties since it is valid
-			beerName = beerNameFromSource;
-			beerCost = beerCostFromSource;
-			beerType = beerTypeFromSource;
-			numberSold = numberSoldFromSource;
-			alcoholContent = beerAlcoholContent;
-			color = delimitedStringsArray[5];
+		return this.numberSold;
+	}
+	
+	private Integer parseAlcoholContent(String value) {
+		if(tryParseInt(value)) {
+			return Integer.parseInt(value);
 		}
+		return this.alcoholContent;
 	}
 
-	//custom functions
 	private boolean tryParseInt(String value) {
-		//check to see if integer can be parsed from a string
-
 		try {
 			Integer.parseInt(value);
 			return true;
@@ -106,7 +68,6 @@ public class BeerProfile {
 	}
 
 	private boolean tryParseFloat(String value) {
-		//check to see if float can be parsed from a string
 		try {
 			Float.parseFloat(value);
 			return true;
@@ -118,5 +79,26 @@ public class BeerProfile {
 		return false;
 
 	}
+	
+	public String getBeerName() {
+		return this.beerName;
+	}
+	public Float getBeerCost() {
+		return this.beerCost;
+	}
+	public String getBeerType() {
+		return this.beerType;
+	}
+	public Integer getNumberSold() {
+		return this.numberSold;
+	}
+	public Integer getAlcoholContent() {
+		return this.alcoholContent;
+	}
+	public String getColor() {
+		return this.color;
+	}
+
+
 
 }
