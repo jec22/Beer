@@ -1,3 +1,5 @@
+package gov.va.med.beer;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -98,13 +100,7 @@ public class BeerMain {
 			}
 			//add to totals
 			totCount += beerCount;
-			totRevenue += (beerCount * beerCost);
-
-			//print per type of beer
-//			System.out.println("* Total count of " + beerKey + " sold: " + beerCount);
-//			System.out.println("* Total revenue of " + beerKey + " sold: " + currencyFormat.format(beerCount * beerCost));
-//			System.out.println("Beer Color: ");
-//			System.out.println(" ------------------------------------------------------ "); //add separator between prints			
+			totRevenue += (beerCount * beerCost);	
 
 			//reset for next type
 			beerCount = 0;
