@@ -26,8 +26,6 @@ public class BeerProfile {
 		return color;
 	}
 
-
-
 	private String		beerName;
 	private Float		beerCost;
 	private String		beerType;
